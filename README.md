@@ -1,100 +1,82 @@
 ```
-# Project Title: QuLab - Portfolio Stress Tester
+# QuLab - Portfolio Stress Tester
 
 ## Description
 
-QuLab - Portfolio Stress Tester is a Streamlit application designed to simulate the impact of various stress scenarios on investment portfolios. This interactive tool is intended for educational purposes, allowing users to understand and visualize how different market conditions can affect their portfolio's value. By defining a portfolio and selecting from predefined or custom stress scenarios, users can observe real-time simulations and dynamic visualizations of portfolio performance under duress.
+The **QuLab - Portfolio Stress Tester** is a Streamlit application designed to demonstrate the impact of various stress scenarios on an investment portfolio. This tool is invaluable for risk management education, allowing users to visualize potential portfolio losses under extreme but plausible market conditions.
 
 **Key Features:**
 
-*   **Portfolio Input:** Users can easily define their portfolio by specifying asset names and their corresponding weights.
-*   **Scenario Definition:** Choose from a selection of predefined stress scenarios such as "Market Crash," "Interest Rate Hike," "Sector Downturn," or create a "Custom Scenario" to tailor the stress test.
-*   **Real-time Simulation:** The application instantly updates visualizations and metrics as scenario parameters are adjusted, providing immediate feedback on the portfolio's response to stress.
-*   **Interactive Visualizations:** Dynamic charts are generated to illustrate portfolio value changes over time and asset value breakdowns at the end of the simulation, enhancing understanding of the stress test results.
-*   **Key Metrics:** Displays crucial metrics like initial and final portfolio values, and the percentage drop experienced under the stress scenario.
+*   **Interactive Portfolio Definition:** Easily input your portfolio by specifying asset names and their respective weights.
+*   **Diverse Stress Scenarios:** Choose from predefined scenarios like "Market Crash," "Interest Rate Hike," "Sector Downturn," or create a "Custom Scenario" tailored to your specific needs.
+*   **Real-time Simulation:** Observe immediate changes in your portfolio's value as you adjust scenario parameters through interactive sliders and inputs.
+*   **Dynamic Visualizations:** Explore interactive charts that clearly illustrate the changes in portfolio value and asset breakdown under stress.
+*   **Key Performance Metrics:** Get a quick overview of the stress test results with metrics like initial portfolio value, final portfolio value, and the percentage portfolio drop.
 
-This tool is valuable for:
-
-*   Identifying potential vulnerabilities in a portfolio that may not be apparent under normal market conditions.
-*   Understanding the magnitude of potential losses in extreme but plausible scenarios.
-*   Supporting informed decision-making in risk management and portfolio adjustments.
+This application serves as an educational tool to understand the importance of stress testing in identifying portfolio vulnerabilities and making informed risk management decisions.
 
 ## Installation
 
-To run the QuLab - Portfolio Stress Tester, you need to have Python installed on your system along with pip, the Python package installer.  It is recommended to use Python 3.8 or higher.
+To run the Portfolio Stress Tester application, you need to have Python installed on your system. It is recommended to use Python 3.8 or higher. Follow these steps to install and set up the application:
 
-**1. Install Python:**
+1.  **Clone the repository (if applicable):**
+    ```bash
+    git clone [repository-url] # Replace [repository-url] with the actual repository URL if available.
+    cd [repository-directory] # Navigate into the cloned directory.
+    ```
 
-If you don't have Python installed, download it from the official Python website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+2.  **Install Python packages:**
+    If you downloaded the Python script directly (without cloning a repository), ensure you have the required Python libraries installed. Use pip to install them by running the following command in your terminal or command prompt:
 
-**2. Install Streamlit and other required libraries:**
-
-Open your terminal or command prompt and install the necessary Python libraries using pip:
-
-```bash
-pip install streamlit pandas numpy matplotlib altair
-```
-
-This command will install:
-
-*   **streamlit:** The framework for building and sharing data applications.
-*   **pandas:** For data manipulation and analysis.
-*   **numpy:** For numerical computations.
-*   **matplotlib:** For creating static, interactive, and animated visualizations in Python (although altair is primarily used in this app, matplotlib might be a dependency).
-*   **altair:** For declarative statistical visualization library for Python.
-
-**3. Save the application code:**
-
-Save the provided Python code as a `.py` file, for example, `portfolio_stress_tester.py`. Ensure this file is in your desired project directory.
+    ```bash
+    pip install streamlit pandas numpy matplotlib altair
+    ```
+    This command will install Streamlit, pandas for data manipulation, numpy for numerical operations, matplotlib for basic plotting (though not directly used in the final app, it might be a dependency), and altair for interactive charts.
 
 ## Usage
 
-**1. Run the Streamlit application:**
+1.  **Run the Streamlit application:**
+    Navigate to the directory containing the Python script (`portfolio_stress_tester.py` - ensure you save the provided Python code as this file) in your terminal and run the following command:
 
-Navigate to the directory where you saved the `portfolio_stress_tester.py` file in your terminal or command prompt.  Run the application using the following command:
+    ```bash
+    streamlit run portfolio_stress_tester.py
+    ```
 
-```bash
-streamlit run portfolio_stress_tester.py
-```
+2.  **Access the application in your browser:**
+    Streamlit will automatically open the application in your default web browser. If it doesn't, you can manually open your browser and go to the URL displayed in the terminal (usually `http://localhost:8501`).
 
-Streamlit will launch the application in your default web browser.
+3.  **Configure Your Portfolio (Sidebar):**
+    *   **Number of Assets:** In the sidebar on the left, use the number input to specify the number of assets in your portfolio.
+    *   **Asset Names and Weights:** For each asset, enter a name and its corresponding weight. Ensure that the weights sum up to 1. If the weights do not sum to 1, the application will automatically normalize them and display a warning.
+    *   **View Portfolio:** The "Current Portfolio" section will display a table showing your configured assets and their weights.
 
-**2. Interact with the application:**
+4.  **Define Stress Scenario (Sidebar):**
+    *   **Choose Stress Scenario:** Select a scenario type from the "Choose Stress Scenario" dropdown:
+        *   **Market Crash:** Simulate a percentage drop across all assets. Use the slider to adjust the "Market Drop Percentage."
+        *   **Interest Rate Hike:** Simulate the impact of an interest rate hike on rate-sensitive assets. The application assumes "Asset B" is rate-sensitive by default. Adjust the "Impact on Rate-Sensitive Assets" slider.
+        *   **Sector Downturn:** Simulate a downturn in a specific sector represented by one of your assets. Select the "Sector Asset" from the dropdown and adjust the "Sector Downturn Impact" slider.
+        *   **Custom Scenario:** Define a custom percentage impact for each asset individually using sliders provided for each asset.
+    *   Read the descriptive text under each scenario type for guidance on the simulation.
 
-Once the application is running in your browser, you can interact with it through the sidebar and the main panel:
+5.  **View Stress Test Results (Main Page):**
+    *   **Portfolio Value Over Time Under Stress:**  A line chart displays how your portfolio value changes over 20 periods under the selected stress scenario. Observe the potential drawdown and recovery.
+    *   **Asset Value Breakdown - End of Simulation:** A bar chart shows the final values of each asset after the stress test, highlighting which assets were most affected.
+    *   **Key Stress Test Metrics:**  View the "Initial Portfolio Value," "Final Portfolio Value," and "Portfolio Drop" percentage to quickly understand the overall impact of the stress scenario on your portfolio.
 
-**Sidebar - Portfolio Configuration:**
-
-*   **Number of Assets in Portfolio:**  Use the number input to specify how many assets are in your portfolio.
-*   **Asset Name and Weight:** For each asset, enter its name and weight. Weights should be decimal values between 0 and 1, and ideally, the sum of all weights should be 1.  If the weights do not sum to 1, the application will normalize them and display a warning.
-*   **Current Portfolio:** A table displays your configured portfolio with asset names and weights.
-
-**Sidebar - Stress Scenario Definition:**
-
-*   **Choose Stress Scenario:** Select a predefined scenario from the dropdown menu:
-    *   **Market Crash:** Simulate a percentage drop across all assets. Adjust the "Market Drop Percentage" slider.
-    *   **Interest Rate Hike:** Simulate the impact of an interest rate hike on rate-sensitive assets (in this example, "Asset B" is considered rate-sensitive). Adjust the "Impact on Rate-Sensitive Assets" slider.
-    *   **Sector Downturn:** Simulate a downturn in a specific sector. Select an asset from the "Select Sector Asset" dropdown and adjust the "Sector Downturn Impact" slider.
-    *   **Custom Scenario:** Define a custom percentage impact for each asset individually using sliders.
-
-**Main Panel - Portfolio Stress Test Results:**
-
-*   **Portfolio Stress Test Results:** The main panel displays the results of the stress test based on your configurations.
-*   **Portfolio Value Over Time Under Stress:** A line chart visualizes how your portfolio value changes over 20 periods under the selected stress scenario.
-*   **Asset Value Breakdown - End of Simulation:** A bar chart shows the final values of each asset after the simulation, illustrating their contribution to the portfolio's final value.
-*   **Key Stress Test Metrics:** Displays the "Initial Portfolio Value," "Final Portfolio Value," and "Portfolio Drop" as key metrics summarizing the stress test outcome.
-
-Explore different portfolio configurations and stress scenarios in the sidebar to observe their impact on the portfolio visualizations and metrics in real-time.
+6.  **Experiment and Learn:**
+    Adjust portfolio configurations and stress scenario parameters to observe how different factors influence your portfolio's performance under stress. This interactive tool is designed to enhance your understanding of portfolio risk management.
 
 ## Credits
 
-This application is developed by **QuantUniversity** as part of the QuCreate Streamlit Lab initiative for educational purposes.
+This application is developed by **QuantUniversity** as part of the QuCreate Streamlit Lab.
 
-For more information about QuantUniversity and our educational resources, please visit: [https://www.quantuniversity.com](https://www.quantuniversity.com)
+[![QuantUniversity Logo](https://www.quantuniversity.com/assets/img/logo5.jpg)](https://www.quantuniversity.com)
+
+For more information about QuantUniversity and our educational resources, please visit [www.quantuniversity.com](https://www.quantuniversity.com).
 
 ## License
 
-© 2025 QuantUniversity. All Rights Reserved.
+**Copyright © 2025 QuantUniversity. All Rights Reserved.**
 
-This demonstration is solely for educational use and illustration. For full legal documentation, please visit the provided link within the application (if available) or contact QuantUniversity directly. Reproduction of this demonstration requires prior written consent from QuantUniversity.
+This demonstration is provided for educational purposes only. Any reproduction or commercial use of this application without prior written consent from QuantUniversity is prohibited. For full legal documentation and licensing inquiries, please contact QuantUniversity through our website.
 ```
